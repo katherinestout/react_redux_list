@@ -4,9 +4,6 @@ const Schema = mongoose.Schema;
 const DonutSchema =  new Schema ({
     donutname:{
         type: String
-    },
-    donuttype:{
-        type: String
     }
 });
 

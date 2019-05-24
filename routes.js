@@ -9,18 +9,18 @@ router.get('/donuts', (req, res) => {
     res.send("hello world");
 });
 
-//get all
+//get all donuts
 router.get('/donuts/all', (req, res) => {
     Donut.find()
     .then(donuts => res.json(donuts))
     .catch(err => res.status(404).json({nodonutsfound: 'no donuts found'})); 
 });
 
-
-
-//add
+//add donut
 router.post('/donuts/post', function(req, res){
-        Donut.create(req.body).then(donuts => console.log(donuts));
+        Donut.create(req.body)
+        .then(donut => res.send(donut));
+       // .catch
 });
 //add?name=jelly 
 
