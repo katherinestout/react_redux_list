@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 //bring in connectDB from config to connect to MongoDB
 const connectDB = require('./config/db');
 
-
 //variables
 const app = express();
 const routes = require('./routes/routes');
@@ -19,7 +18,6 @@ app.use('/api/donuts', routes);
 //body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-
 
 const PORT = process.env.PORT || 5000;
 
