@@ -4,22 +4,20 @@ const bodyParser = require('body-parser');
 
 //variables
 const app = express();
-const routes = require('./routes/routes');
 
-//routing
-app.use('/api', routes);
+const routes = require('./routes');
 
 //body parser
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
+//routing
+app.use('/', routes);
 
 //bring in connectDB from config to connect to MongoDB
 const connectDB = require('./config/db');
 //connect to the db
 connectDB();
-
-
 
 const PORT = process.env.PORT || 5000;
 
