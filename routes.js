@@ -23,20 +23,22 @@ router.post('/donuts/post', (req, res) => {
     .catch(err => res.status(404).json({postrejected: "something went wrong posting"}) 
      );
 });
-//add?name=jelly 
 
-//delete
+//delete donut
 router.delete('/donuts/:id', (req, res) => {
- Donut.findByIdAndRemove({_id: req.params.id})
- .then(donut => res.send(donut));
+    Donut.findByIdAndRemove({_id: req.params.id})
+    .then(donut => res.send(donut));
  });
     
 
-//update
+//replace donut
 router.put('/donuts/:id', function(req, res){
- 
-        res.send("able to update");
-
+    Donut.findByIdAndUpdate({_id: req.params.id}, req.body).then(() => {
+        Donut.findOne({_id: req.params.id})
+        .then((donut) => {
+            res.send(donut);
+        });
+    });
 });
 
 module.exports = router;
