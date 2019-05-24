@@ -2,10 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const DonutSchema =  new Schema ({
-    name:{
-        type: String,
-        required: true
+    donutname:{
+        type: String
+    },
+    donuttype:{
+        type: String
     }
-})
+});
 
-module.exports = Donut = mongoose.model('donut', DonutSchema);
+const Donut = mongoose.model('donut', DonutSchema)
+
+module.exports = Donut;
