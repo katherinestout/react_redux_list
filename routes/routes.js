@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-const passport = require('passport');
+//const mongoose = require('mongoose');
+//const passport = require('passport');
 
-const Donut = require('./../models/Donut');
+//const Donut = require('./../models/Donut');
 
 //test
 router.get('/', (req, res) => {
