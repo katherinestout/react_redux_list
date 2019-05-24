@@ -17,21 +17,20 @@ router.get('/donuts/all', (req, res) => {
 });
 
 //add donut
-router.post('/donuts/post', function(req, res){
-        Donut.create(req.body)
-        .then(donut => res.send(donut));
-       // .catch
+router.post('/donuts/post', (req, res) => {
+    Donut.create(req.body)
+    .then(donut => res.send(donut))
+    .catch(err => res.status(404).json({postrejected: "something went wrong posting"}) 
+     );
 });
 //add?name=jelly 
 
 //delete
-router.delete('/donuts/:id', function(req, res){
- Donut.findById(req.params.id).then(donut => {
-     donut.remove().then(() => res.json({success: true}));
- })
- .catch(err => res.status(404).json({donutnotfound: 'no donut found'}));
+router.delete('/donuts/:id', (req, res) => {
+ Donut.findByIdAndRemove({_id: req.params.id})
+ .then(donut => res.send(donut));
+ });
     
-});
 
 //update
 router.put('/donuts/:id', function(req, res){
