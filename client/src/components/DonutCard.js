@@ -6,7 +6,7 @@ const DonutCard = props => (
 
 <div>
 <p> <i className="fas fa-ice-cream"></i>
-{props.donut} 
+{props.donutname} 
 </p>
   </div>
 

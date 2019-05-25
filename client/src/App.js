@@ -6,27 +6,49 @@ const axios = require('axios');
 class App extends Component {
 
   initialState = {
-      donut: "",
+      donutname: "",
       donutError: "",
       donutCollection: ""
   }
 
   state= this.initialState; 
 
+  componentDidMount(){
+    this.getDonuts();
+  }
+
 //clearing form when submitted, resetting state to initial state
 handleFormReset = () => {
   this.setState(() => this.initialState)
 }
 
+getDonuts = () => {
+  axios.get('http://localhost:5000/donuts/all', {
+  })
+  .then(response => response.json())
+  .then(response => this.setState({donutCollection: response.data}))
+  .catch(err => console.log(err));
+}
 
   //add donut
-  addDonut = () => {
-    const {donut} = this.state;
-    axios.post('/donuts/post', {
-      donut
-    }).then(this.handleFormReset());
-  //  .catch(err => console.log(err));
+addDonut = () => {
+    const {donutname} = this.state;
+    axios.post('http://localhost:5000/donuts/post', {
+      donutname
+    }).then(this.handleFormReset())
+    .catch(err => console.log(err));
   }
+
+//delete donut
+deleteDonut = () => {
+
+}
+
+//update donut
+updateDonut = () => {
+
+}
+
 
 //changes in inputs
 handleChange = event =>{
@@ -39,18 +61,19 @@ handleSubmit = event => {
   }
 
   render() {
+
+    //const {donutCollection} = this.state;
   
     return (
       <div className="app">
-       
           <h1>Donut Shop</h1>
         <form onSubmit = {this.handleSubmit}>
           <label>New Donut:</label>
 
-          <input name = "donut"
+          <input name = "donutname"
           type="text"
           onChange={this.handleChange}
-          value={this.state.donut}/>
+          value={this.state.donutname}/>
 
           <div className="error"> {this.state.donutError}</div>
         
