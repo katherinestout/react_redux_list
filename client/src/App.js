@@ -23,10 +23,11 @@ handleFormReset = () => {
 }
 
 getDonuts = () => {
-  axios.get('http://localhost:5000/donuts/all', {
-  })
+  axios.get('http://localhost:5000/donuts/all')
+ // .then(response => console.log(response.data))
   .then(response => response.json())
   .then(response => this.setState({donutCollection: response.data}))
+  //.then(console.log(this.state.donutCollection))
   .catch(err => console.log(err));
 }
 
