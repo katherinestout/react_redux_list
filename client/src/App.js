@@ -8,7 +8,7 @@ class App extends Component {
   initialState = {
       donutname: "",
       donutError: "",
-      donutCollection: ""
+      donutCollection: []
   }
 
   state= this.initialState; 
@@ -25,9 +25,8 @@ handleFormReset = () => {
 getDonuts = () => {
   axios.get('http://localhost:5000/donuts/all')
  // .then(response => console.log(response.data))
-  .then(response => response.json())
+ // .then(response => response.json())
   .then(response => this.setState({donutCollection: response.data}))
-  //.then(console.log(this.state.donutCollection))
   .catch(err => console.log(err));
 }
 
@@ -37,6 +36,7 @@ addDonut = () => {
     axios.post('http://localhost:5000/donuts/post', {
       donutname
     }).then(this.handleFormReset())
+    .then(this.getDonuts)
     .catch(err => console.log(err));
   }
 
@@ -63,11 +63,23 @@ handleSubmit = event => {
 
   render() {
 
-    //const {donutCollection} = this.state;
+    const {donutCollection} = this.state;
   
     return (
       <div className="app">
           <h1>Donut Shop</h1>
+
+
+          <Wrapper>
+        {donutCollection.map(donut => (
+          <DonutCard
+          key={donut.id}
+          donutname = {donut.donutname}
+          />
+        ))}
+  
+     </Wrapper>
+
         <form onSubmit = {this.handleSubmit}>
           <label>New Donut:</label>
 
