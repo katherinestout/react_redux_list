@@ -11,7 +11,7 @@ const DonutCard = props => (
 </p>
 
 <button className="delete-button" 
-onClick={() => props.deleteDonut(props.id)}>DELETE</button>
+onClick={() => props.deleteDonut(props._id)}>DELETE</button>
 
 <span>&nbsp;</span> 
 

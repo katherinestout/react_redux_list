@@ -40,8 +40,12 @@ addDonut = () => {
   }
 
 //delete a donut
-deleteDonut = (id) => {
-   console.log(id);
+deleteDonut = (_id) => {
+    axios.delete(`http://localhost:5000/donuts/${_id}`, {
+      _id
+    })
+    .then(this.getDonuts)
+    .catch(err => console.log(err));
 }
 
 //click for a suprise donut
@@ -79,6 +83,7 @@ handleSubmit = event => {
         {donutCollection.map(donut => (
           <DonutCard
           key={donut._id}
+          _id = {donut._id}
           id={donut.id}
           donutname = {donut.donutname}
           deleteDonut = {this.deleteDonut}
