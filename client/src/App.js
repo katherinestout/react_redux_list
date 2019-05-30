@@ -22,15 +22,14 @@ handleFormReset = () => {
   this.setState(() => this.initialState)
 }
 
+//get all donuts
 getDonuts = () => {
   axios.get('http://localhost:5000/donuts/all')
- // .then(response => console.log(response.data))
- // .then(response => response.json())
   .then(response => this.setState({donutCollection: response.data}))
   .catch(err => console.log(err));
 }
 
-  //add donut
+//add a donut
 addDonut = () => {
     const {donutname} = this.state;
     axios.post('http://localhost:5000/donuts/post', {
@@ -40,13 +39,19 @@ addDonut = () => {
     .catch(err => console.log(err));
   }
 
-//delete donut
-deleteDonut = () => {
+//delete a donut
+deleteDonut = (id) => {
+   console.log(id);
+}
+
+//click for a suprise donut
+surpirseDonut = (id) => {
+    axios.put('')
 
 }
 
 //update donut
-updateDonut = () => {
+editDonut = () => {
 
 }
 
@@ -73,8 +78,10 @@ handleSubmit = event => {
           <Wrapper>
         {donutCollection.map(donut => (
           <DonutCard
-          key={donut.id}
+          key={donut._id}
+          id={donut.id}
           donutname = {donut.donutname}
+          deleteDonut = {this.deleteDonut}
           />
         ))}
   

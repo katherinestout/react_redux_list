@@ -26,13 +26,14 @@ router.post('/donuts/post', (req, res) => {
 
 //delete donut
 router.delete('/donuts/:id', (req, res) => {
-    Donut.findByIdAndRemove({_id: req.params.id})
-    .then(donut => res.send(donut));
+    Donut.findByIdAndDelete({_id: req.params.id})
+    .then(donut => res.send(donut))
+    .catch(err => console.log(err) );
  });
     
 
 //replace donut
-router.put('/donuts/:id', function(req, res){
+router.put('/donuts', function(req, res){
     Donut.findByIdAndUpdate({_id: req.params.id}, req.body).then(() => {
         Donut.findOne({_id: req.params.id})
         .then((donut) => {

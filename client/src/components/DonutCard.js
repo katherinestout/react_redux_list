@@ -5,9 +5,22 @@ import React from 'react';
 const DonutCard = props => (
 
 <div>
-<p> <i className="fas fa-ice-cream"></i>
+<p>
 {props.donutname} 
+
 </p>
+
+<button className="delete-button" 
+onClick={() => props.deleteDonut(props.id)}>DELETE</button>
+
+<span>&nbsp;</span> 
+
+<button className="update-button"
+onClick={() => props.supriseDonut(props.id)}> SUPRISE ME</button>
+
+<button className="edit-button"
+onClick={() => props.editDonut(props.id)}> EDIT </button>
+
   </div>
 
 )
