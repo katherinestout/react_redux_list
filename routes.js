@@ -33,7 +33,7 @@ router.delete('/donuts/:id', (req, res) => {
     
 
 //replace donut
-router.put('/donuts', function(req, res){
+router.put('/donuts/:id', function(req, res){
     Donut.findByIdAndUpdate({_id: req.params.id}, req.body).then(() => {
         Donut.findOne({_id: req.params.id})
         .then((donut) => {

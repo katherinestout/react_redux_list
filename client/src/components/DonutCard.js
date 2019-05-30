@@ -7,7 +7,6 @@ const DonutCard = props => (
 <div>
 <p>
 {props.donutname} 
-
 </p>
 
 <button className="delete-button" 
@@ -16,10 +15,10 @@ onClick={() => props.deleteDonut(props._id)}>DELETE</button>
 <span>&nbsp;</span> 
 
 <button className="update-button"
-onClick={() => props.supriseDonut(props.id)}> SUPRISE ME</button>
+onClick={() => props.supriseDonut(props._id)}> SUPRISE ME</button>
 
 <button className="edit-button"
-onClick={() => props.editDonut(props.id)}> EDIT </button>
+onClick={() => props.editDonut(props._id)}> EDIT </button>
 
   </div>
 

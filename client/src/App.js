@@ -49,8 +49,11 @@ deleteDonut = (_id) => {
 }
 
 //click for a suprise donut
-surpirseDonut = (id) => {
-    axios.put('')
+surpirseDonut = (_id) => {
+    axios.put(`http://localhost:5000/donuts/${_id}`, {
+      _id
+    }).then(this.getDonuts)
+    .catch(err => console.log(err));
 
 }
 
