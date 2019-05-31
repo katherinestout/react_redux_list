@@ -49,8 +49,10 @@ deleteDonut = (_id) => {
 }
 
 //click for a suprise donut
-surpirseDonut = (_id) => {
-    axios.put(`http://localhost:5000/donuts/${_id}`, {
+supriseDonut = (_id) => {
+  const{donutname} = this.state;
+    axios.put(`http://localhost:5000/donuts/surprise/${_id}`, {
+      donutname,
       _id
     }).then(this.getDonuts)
     .catch(err => console.log(err));
@@ -58,10 +60,13 @@ surpirseDonut = (_id) => {
 }
 
 //update donut
-editDonut = () => {
+editDonut = (_id) => {
+  axios.put(`http://localhost:5000/donuts/edit/${_id}`, {
+    _id
+  }).then(this.getDonuts)
+  .catch(err => console.log(err));
 
 }
-
 
 //changes in inputs
 handleChange = event =>{
@@ -90,6 +95,7 @@ handleSubmit = event => {
           id={donut.id}
           donutname = {donut.donutname}
           deleteDonut = {this.deleteDonut}
+          supriseDonut = {this.supriseDonut}
           />
         ))}
   

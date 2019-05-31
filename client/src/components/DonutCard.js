@@ -14,8 +14,8 @@ onClick={() => props.deleteDonut(props._id)}>DELETE</button>
 
 <span>&nbsp;</span> 
 
-<button className="update-button"
-onClick={() => props.supriseDonut(props._id)}> SUPRISE ME</button>
+<button className="surprise-button"
+onClick={() => props.supriseDonut(props._id)}> SUPRISE ME!</button>
 
 <button className="edit-button"
 onClick={() => props.editDonut(props._id)}> EDIT </button>
