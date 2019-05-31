@@ -32,9 +32,19 @@ router.delete('/donuts/:id', (req, res) => {
  });
     
 
-//replace donut
-router.put('/donuts/:id', function(req, res){
+//edit donut
+router.put('/donuts/edit/:id', function(req, res){
     Donut.findByIdAndUpdate({_id: req.params.id}, req.body).then(() => {
+        Donut.findOne({_id: req.params.id})
+        .then((donut) => {
+            res.send(donut);
+        });
+    });
+});
+
+//surprise donut
+router.put('/donuts/surprise/:id', (req, res) => {
+    Donut.findByIdAndUpdate({_id: req.params.id}, {"donutname": "delish"}).then(() => {
         Donut.findOne({_id: req.params.id})
         .then((donut) => {
             res.send(donut);
