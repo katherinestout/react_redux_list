@@ -44,7 +44,7 @@ router.put('/donuts/edit/:id', function(req, res){
 
 //surprise donut
 router.put('/donuts/surprise/:id', (req, res) => {
-    Donut.findByIdAndUpdate({_id: req.params.id}, {"donutname": "delish"}).then(() => {
+    Donut.findByIdAndUpdate({_id: req.params.id}, {"donutname": "Are donuts really just better bagels?"}).then(() => {
         Donut.findOne({_id: req.params.id})
         .then((donut) => {
             res.send(donut);

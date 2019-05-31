@@ -94,26 +94,31 @@ handleSubmit = event => {
           _id = {donut._id}
           id={donut.id}
           donutname = {donut.donutname}
+         
           deleteDonut = {this.deleteDonut}
           supriseDonut = {this.supriseDonut}
+          editDonut = {this.editDonut}
+
           />
         ))}
   
      </Wrapper>
 
         <form onSubmit = {this.handleSubmit}>
-          <label>New Donut:</label>
+
 
           <input name = "donutname"
           type="text"
           onChange={this.handleChange}
           value={this.state.donutname}/>
+        
+        <button>
+        <i className="fas fa-plus"></i>
+        </button>
 
           <div className="error"> {this.state.donutError}</div>
         
-        <button>
-          Submit
-        </button>
+    
         </form>
         
       </div>

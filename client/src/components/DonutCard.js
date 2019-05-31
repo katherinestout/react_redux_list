@@ -5,20 +5,18 @@ import React from 'react';
 const DonutCard = props => (
 
 <div>
-<p>
-{props.donutname} 
-</p>
+  <input
+value = {props.donutname} 
+/>
 
-<button className="delete-button" 
-onClick={() => props.deleteDonut(props._id)}>DELETE</button>
+<i className="far fa-trash-alt" onClick={() => props.deleteDonut(props._id)}></i>
 
-<span>&nbsp;</span> 
 
 <button className="surprise-button"
 onClick={() => props.supriseDonut(props._id)}> SUPRISE ME!</button>
 
-<button className="edit-button"
-onClick={() => props.editDonut(props._id)}> EDIT </button>
+<i className="far fa-edit" onClick={() => props.editDonut(props._id)}></i>
+
 
   </div>
 
