@@ -8,8 +8,7 @@ class App extends Component {
   initialState = {
       donutname: "",
       donutError: "",
-      donutCollection: [],
-      adonut: ""
+      donutCollection: []
   }
 
   state= this.initialState; 
@@ -91,9 +90,11 @@ handleSubmit = event => {
           <Wrapper>
         {donutCollection.map(donut => (
           <DonutCard
+          
           key={donut._id}
           _id = {donut._id}
           id={donut.id}
+
           donutname = {donut.donutname}
 
           deleteDonut = {this.deleteDonut}
@@ -102,9 +103,9 @@ handleSubmit = event => {
 
                     
          // placeholder = {donut.donutname}
-          value= {this.state.donutname}
-          onChange = {this.handleChange}
-          type = "text"
+         // value= {this.state.donutname}
+          handleChange = {this.handleChange}
+         
           />
         ))}
   
