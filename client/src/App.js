@@ -8,7 +8,8 @@ class App extends Component {
   initialState = {
       donutname: "",
       donutError: "",
-      donutCollection: []
+      donutCollection: [],
+      adonut: ""
   }
 
   state= this.initialState; 
@@ -94,11 +95,16 @@ handleSubmit = event => {
           _id = {donut._id}
           id={donut.id}
           donutname = {donut.donutname}
-         
+
           deleteDonut = {this.deleteDonut}
           supriseDonut = {this.supriseDonut}
           editDonut = {this.editDonut}
 
+                    
+         // placeholder = {donut.donutname}
+          value= {this.state.donutname}
+          onChange = {this.handleChange}
+          type = "text"
           />
         ))}
   
