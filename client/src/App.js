@@ -59,14 +59,14 @@ supriseDonut = (_id) => {
 
 }
 
-//update donut
+/*/update donut
 editDonut = (_id) => {
   axios.put(`http://localhost:5000/donuts/edit/${_id}`, {
     _id
   }).then(this.getDonuts)
   .catch(err => console.log(err));
 
-}
+}*/
 
 //changes in inputs
 handleChange = event =>{
@@ -99,11 +99,6 @@ handleSubmit = event => {
 
           deleteDonut = {this.deleteDonut}
           supriseDonut = {this.supriseDonut}
-          editDonut = {this.editDonut}
-
-                    
-         // placeholder = {donut.donutname}
-         // value= {this.state.donutname}
           handleChange = {this.handleChange}
          
           />

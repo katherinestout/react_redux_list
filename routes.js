@@ -32,7 +32,7 @@ router.delete('/donuts/:id', (req, res) => {
  });
     
 
-//edit donut
+/*edit donut
 router.put('/donuts/edit/:id', function(req, res){
     Donut.findByIdAndUpdate({_id: req.params.id}, req.body).then(() => {
         Donut.findOne({_id: req.params.id})
@@ -40,7 +40,7 @@ router.put('/donuts/edit/:id', function(req, res){
             res.send(donut);
         });
     });
-});
+});*/
 
 //surprise donut
 router.put('/donuts/surprise/:id', (req, res) => {
