@@ -1,25 +1,14 @@
 import axios from 'axios';
 
 import {
-    ADD_DONUT,
-    UPDATE_DONUT,
-    DELETE_DONUT,
     GET_DONUTS
 } from './types';
 
-export const addDonut = () => dispatch => {
-    
-}
-
 export const getDonuts = () => dispatch => {
-
-} 
-
-export const deleteDonut = () => dispatch => {
-    
-}
-
-export const surpriseDonut = () => dispatch => {
-    
+    axios.get('http://localhost:5000/donuts/all')
+    .then(donutCollection => dispatch({
+        type: GET_DONUTS,
+        payload: donutCollection
+    }));
 }
 

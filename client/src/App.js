@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import DonutCard from './components/DonutCard';
 import Wrapper from './components/Wrapper';
 const axios = require('axios');
+//import {connect} from 'react-redux';
+//import {getDonuts} from './actions/donutActions';
 
 class App extends Component {
-
+/*componentWillMount(){
+this.props.getDonuts();
+}*/
   initialState = {
       donutname: "",
       donutError: "",
@@ -129,3 +133,4 @@ handleSubmit = event => {
 }
 
 export default App;
+//export default connect(null, {getDonuts}(App));
