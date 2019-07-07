@@ -67,7 +67,6 @@ editDonut = (_id) => {
     _id
   }).then(this.getDonuts)
   .catch(err => console.log(err));
-
 }*/
 
 //changes in inputs
