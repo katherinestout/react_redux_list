@@ -6,9 +6,7 @@ const axios = require('axios');
 //import {getDonuts} from './actions/donutActions';
 
 class App extends Component {
-/*componentWillMount(){
-this.props.getDonuts();
-}*/
+
   initialState = {
       donutname: "",
       donutError: "",

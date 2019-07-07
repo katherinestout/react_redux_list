@@ -13,7 +13,7 @@ export default function(state = initalState, action){
         return {
             ...state,
             donutCollection: action.payload
-        }
+        };
         default:
             return state;
     }
