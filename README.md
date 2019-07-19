@@ -1,4 +1,6 @@
 # Todo_Donuts
 
-MERN
+MERN stack
+
+
 axios, MongoDB, CRUD
